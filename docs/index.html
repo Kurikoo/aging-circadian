@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Audrey Jiang" />
+
+
+<title>Aging and Circadian Rhythm</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Aging and Circadian Rhythm</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="https://www.nia.nih.gov/">
+    <span class="glyphicon glyphicon-time"></span>
+     
+    NIA
+  </a>
+</li>
+<li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="wavelet.html">
+    <span class="fa fa-gear"></span>
+     
+    More
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Aging and Circadian Rhythm</h1>
+<h4 class="author">Audrey Jiang</h4>
+<h4 class="date">Last updated on 2019-12-24</h4>
+
+</div>
+
+
+<style>
+h1{font-weight: 400;}
+</style>
+<style>
+h1{font-weight: 400;}
+</style>
+<hr />
+<div id="aging" class="section level1">
+<h1>Aging</h1>
+<div id="the-growing-aging-group" class="section level2">
+<h2>1. The Growing Aging Group</h2>
+<p>Aging has become one of the most pressing while neglectful problems worldwide. As the data from World Health Organization (WHO) suggests, between 2015 and 2050, the proportion of the world’s population over 60 years will nearly double from 12% to 22%, and by 2020, the number of people aged 60 years and older will outnumber children younger than 5 years. This population structure change will cause challenges to the societal and health systems, especially in developing countries. <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p><img src="static/images/AgeingPopulation.png" width="600" /> <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+</div>
+<div id="the-aging-problem-worldwide" class="section level2">
+<h2>2. The Aging Problem Worldwide</h2>
+<p>Although the shift in distribution of a country’s population towards older ages started in developed countries (for example in Japan 30% of the population are already over 60 years old), more and more low- and middle-income countries are experiencing the similar challenges, <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> and the effect of aging on these countries will be much more severe than the developed countries, as most of them haven’t established a well-founded medical care system.</p>
+<p>The figure below pictures the estimated percentage of people aged 60 years or older by the year 2025 with gradience of different percentage ranges. As the figure suggests, most places in the world will have a ages population of more than 10%.</p>
+<p><img src="static/images/World_health_organization.jpeg" width="600" /> <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+</div>
+<div id="aging-and-health" class="section level2">
+<h2>3. Aging and Health</h2>
+<p>There are many conditions that elder people would develop as they age, including hearing loss, cataracts and refractive errors, back and neck pain and osteoarthritis, chronic obstructive pulmonary disease, diabetes, depression, and dementia. Furthermore, as people age, they are more likely to experience several conditions at the same time. <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<p>The factors that influcing people are multi-layered as suggested by the following figure, it is not only shaped by the factors of the environment they live in, such as the housing, assistive technologies, transportation system, social facilities, but also individual factors like people’s behaviors including different aspects of their lifestyle, age-related changes, genetics, and disease.</p>
+<p><img src="static/images/aging&amp;Health.jpg" width="600" /> <a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></p>
+<p>While most of the current researches relating to aging focus on different diseases including physiological ones like cancer and neurodegenerative diseases such as Parkinson or Alzheimer, the role of everyday lifestyle is overlooked. Particularly, circadian rhythm plays an important role in almost every perspectives of human health. In the next section, we will go through what a circadian rhythm is and how it affect our daily life performance, and in the last section, we will look at how circadian rhythm changes with aging, and how a rhythmatic everyday schedule will help with human health.</p>
+<hr />
+</div>
+</div>
+<div id="circadian-rhythm" class="section level1">
+<h1>Circadian Rhythm</h1>
+<div id="what-is-circadian-rhythm" class="section level2">
+<h2>1. What is Circadian Rhythm?</h2>
+<div id="the-most-basic" class="section level3">
+<h3>(the most basic)</h3>
+<p>Circadian rhythm is the 24-hour natural and internal clock that regulates sleep-wake cycles as well as metabolism and other functionalities of living beings. These 24-hour rhythms have been widely observed in plants, animals, fungi and cyanobacteria<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p>
+<p>Although circadian rhythms are endogenous and self-sustained, they are adjusted (entrained) to the local environment by external cues called zeitgebers (German, “time-giver”). The known zeitgebers include light, temperature, food availability and presence of predators <a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>. The ability to entrain to a new rhythm is one of the criteria to be determined as circadian rhythm.</p>
+<p><img src="static/images/shutterstock_circadian.jpg" width="800" /> <a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a></p>
+</div>
+</div>
+<div id="three-criteria" class="section level2">
+<h2>2. Three Criteria</h2>
+<ul>
+<li>There are three criteria that are used to determine if the biological rhythm is circadian or not:
+<ol style="list-style-type: lower-alpha">
+<li>The rhythm has an endogenous free-running period that lasts approximately 24 hours.</li>
+<li>The rhythms are entrainable.</li>
+<li>The rhythms exhibit temperature compensation.</li>
+</ol></li>
+</ul>
+</div>
+<div id="a-modern-disease-social-jetlag" class="section level2">
+<h2>3. A Modern Disease: Social Jetlag</h2>
+<p>As one of the consequences of the urbanization and industrialization, people’s daily rhythms are not only influenced by the environmental cues, but also largely affected by their working hour and social activities.</p>
+<p>Social jetlag was coined by Roenneberg and colleagues in 2006 <a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> to describe this mismatch between internal and external time in the modern time society, that affect people’s health in different aspects in modern time society.</p>
+<p>Social jetlag is assessed as the difference between work day and free day sleep timing. Sleep on work-free days is considered to reflect the natural sleep cycle, and thereby serves as a proxy for internal time, while workday sleep is thought to be more reflective of external, social time, due to its constrained nature <a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></p>
+<div class="figure">
+<img src="static/images/time.jpg" width="600" />
+
+</div>
+</div>
+<div id="health-consequences-of-circadian-disruption" class="section level2">
+<h2>4. Health Consequences of Circadian Disruption</h2>
+<p>Circadian system disruption and sleep disruption will affect human being’s health in various ways as shown by the figure below. One of the best-characterized metabolic sequelae of sleep disruption is disrupted glucose metabolism, and its negative influence on human body is universal across different regulatory systems <a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>.</p>
+<p>Sleep-restriction studies also showed that sleep restriction will increase energy intakes in adults, contributing to obesogenic effect, as more food will be need to be consumed to compensate for the additional energy cost during the wake period <a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>.</p>
+<p><img src="static/images/health_issues.jpg" width="600" /> <a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a></p>
+<hr />
+</div>
+</div>
+<div id="agings-effect-on-circadian-rhythm" class="section level1">
+<h1>Aging’s effect on circadian rhythm</h1>
+<p>Previous researches in the field have shown that aging can affect the circadian rhythms both in animal models and humans in various scenarios, including decreased circadian amplitude and fragmentation of the sleep episodes. <a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a> <a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a></p>
+<p>Amplitude and period are regarded as two important indicators of the circadian cycle, aging usually results in the damping of the amplitude and the shortening of the period. As shown below, amplitude is defined as the distance between the origin and the crest (or the trough). In circadian rhythm research, it can be evaluated by the locomotor activity level, or the bioluminescence level, or the multiunit neural recordings from the central circadian clock in the suprachiasmatic nucleus (SCN). The period is defined as the amount of time it takes for one complete circadian cycle, typically it is 24 hours for human beings.</p>
+<p><img src="static/images/period.png" width="600" /> <a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a></p>
+<div id="animal-models" class="section level2">
+<h2>Animal Models</h2>
+<div id="agings-effect-on-amplitude" class="section level3">
+<h3>Aging’s effect on amplitude</h3>
+<p>Nakamura et al. (2011) <a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a> has shown the significant reduction of amplitude of day-night difference in multiunit neural activity (MUA) from the suprachiasmatic nucleus (SCN) in “middle-aged” mice compared to young mice.</p>
+</div>
+<div id="agings-effect-on-period" class="section level3">
+<h3>Aging’s effect on period</h3>
+<p>Morin (1988) <a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> had used hamster models to investigate the age-related changes in circadian period, entrainment and rhythm splitting, and they found that although there’s no differences in terms of entrainment in young and old hamster groups, the loss of entrainment to longer T-cycles was more drastic for the older group. They also confirmed the observation by Pittendrigh and Dann (1974) <a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>, that the elder the hamster, the shorter the circadian period becomes.</p>
+</div>
+</div>
+<div id="humans" class="section level2">
+<h2>Humans</h2>
+<p>The figure below documented the changes in the 24-hour cycle of between young and old adults, including rhythms of waking activity; core body temperatures; SCN firing; release of hormones, such as melatonin and cortisol; and fasting plasma glucose levels. Relative to younger adults (blue lines), the amplitude of many rhythms dampens in older adults (red lines). In some cases, the peak of the rhythm also advances. <a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a> <img src="static/images/aging.jpg" width="600" /></p>
+<p><a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a></p>
+<hr />
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>“Aging and Health”. World Health Organization, 5th Feb. 2018, <a href="https://www.who.int/news-room/fact-sheets/detail/Aging-and-health" class="uri">https://www.who.int/news-room/fact-sheets/detail/Aging-and-health</a>. Accessed 28th Nov. 2019<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Dossman, Christopher. “The State of Elderly Care Products and How AI Can Revolutionize Aging”. Medium, 29th Oct. 2018, <a href="https://towardsdatascience.com/the-state-of-elderly-care-products-and-how-ai-can-revolutionize-aging-d4b098a1dacd" class="uri">https://towardsdatascience.com/the-state-of-elderly-care-products-and-how-ai-can-revolutionize-aging-d4b098a1dacd</a>. Accessed 28th Nov. 2019<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>“Aging and Health”. World Health Organization, 5th Feb. 2018, <a href="https://www.who.int/news-room/fact-sheets/detail/Aging-and-health" class="uri">https://www.who.int/news-room/fact-sheets/detail/Aging-and-health</a>. Accessed 28th Nov. 2019<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>“An Aging Population is Stalling Productivity”. The Longevity Reporter, 17th Dec. 2016, <a href="http://longevityreporter.org/blog/2016/12/16/an-aging-population-is-stalling-productivity" class="uri">http://longevityreporter.org/blog/2016/12/16/an-aging-population-is-stalling-productivity</a>. Accessed 28th Nov. 2019<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>“Aging and Health”. World Health Organization, 5th Feb. 2018, <a href="https://www.who.int/news-room/fact-sheets/detail/Aging-and-health" class="uri">https://www.who.int/news-room/fact-sheets/detail/Aging-and-health</a>. Accessed 28th Nov. 2019<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>World Health Organization on Twitter, 18th Jan. 2017, <a href="https://twitter.com/who/status/821761804271579137" class="uri">https://twitter.com/who/status/821761804271579137</a>. Accessed 28th Nov. 2019<a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>“Circadian Rhythm”. Wikipedia, <a href="https://en.wikipedia.org/wiki/Circadian_rhythm#Criteria" class="uri">https://en.wikipedia.org/wiki/Circadian_rhythm#Criteria</a>. Accessed 28th Nov. 2019<a href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>“Circadian Rhythm”. Wikipedia, <a href="https://en.wikipedia.org/wiki/Circadian_rhythm#Criteria" class="uri">https://en.wikipedia.org/wiki/Circadian_rhythm#Criteria</a>. Accessed 28th Nov. 2019<a href="#fnref8">↩</a></p></li>
+<li id="fn9"><p>Illustration by Kanyanat Wongsa/Shutterstock.com <a href="https://www.israel21c.org/10-things-you-didnt-know-about-how-circadian-rhythm-affects-your-health/" class="uri">https://www.israel21c.org/10-things-you-didnt-know-about-how-circadian-rhythm-affects-your-health/</a>. Accessed 28th Nov. 2019.<a href="#fnref9">↩</a></p></li>
+<li id="fn10"><p>Wittmann, M., Dinich, J., Merrow, M., &amp; Roenneberg, T. (2006). Social jetlag: Misalignment of biological and social time. Chronobiology International, 23, 497–509. <a href="https://doi" class="uri">https://doi</a>. org/10.1080/07420520500545979.<a href="#fnref10">↩</a></p></li>
+<li id="fn11"><p>Vetter, A. (2018). Circadian disruption: What do we actually mean? European Journal of Neuroscience, 2018; 00: 1– 20. <a href="https://doi.org/10.1111/ejn.14255" class="uri">https://doi.org/10.1111/ejn.14255</a>.<a href="#fnref11">↩</a></p></li>
+<li id="fn12"><p>Potter, G.D.M et al.(2016) Circadian Rhythm and Sleep Disruption: Causes, Metabolic Consequences, and Countermeasures. Endocr Rev. 37(6): 584-608. doi: 10.1210/er.2016-1083.<a href="#fnref12">↩</a></p></li>
+<li id="fn13"><p>Capers, P.L. et. al (2015) A systematic review and meta-analysis of randomized controlled trials of the impact of sleep duration on adiposity and components of energy balance. Obes Rev. 16(9):771-82.<a href="#fnref13">↩</a></p></li>
+<li id="fn14"><p>Potter, G.D.M et. al (2016) Circadian Rhythm and Sleep Disruption: Causes, Metabolic Consequences, and Countermeasures. Endocr Rev. 37(6): 584-608. doi: 10.1210/er.2016-1083.<a href="#fnref14">↩</a></p></li>
+<li id="fn15"><p>Nakamura TJ, et al. (2011) Age-related decline in circadian output. J. Neursci. 31(28): 10201-10205.<a href="#fnref15">↩</a></p></li>
+<li id="fn16"><p>Van Someren EJ (2000) Circadian rhythms and sleep in human aging. Chronobio. Int. 17:233–243.<a href="#fnref16">↩</a></p></li>
+<li id="fn17"><p>Pierce, Rod. “Amplitude, Period, Phase Shift and Frequency” Math Is Fun. Ed. Rod Pierce. 13 Feb 2019. 24 Dec 2019 <a href="http://www.mathsisfun.com/algebra/amplitude-period-frequency-phase-shift.html" class="uri">http://www.mathsisfun.com/algebra/amplitude-period-frequency-phase-shift.html</a><a href="#fnref17">↩</a></p></li>
+<li id="fn18"><p>Nakamura TJ, Nakamura W, Yamazaki S, Kudo T, Cutler T, Colwell CS, Block GD (2011) Age-related decline in circadian output. Journal of Neuroscience 31(28): 10201-10205.<a href="#fnref18">↩</a></p></li>
+<li id="fn19"><p>Morin LP (1988) Age-related changes in hamster circadian period, entrainment, and rhythm splitting. Journal of Biological Rhythms 3(3): 237-248.<a href="#fnref19">↩</a></p></li>
+<li id="fn20"><p>Pittendrigh CS &amp; Daan S (1974) Circadian oscillations in rodents: a systematic increase of their frequency with age. Science 186: 548-550.<a href="#fnref20">↩</a></p></li>
+<li id="fn21"><p>Hood S &amp; Amir S (2017) The aging clock: circadian rhythms and later life. Journal of Clinical Investigation 127(2): 437-446.<a href="#fnref21">↩</a></p></li>
+<li id="fn22"><p>Hood S &amp; Amir S (2017) The aging clock: circadian rhythms and later life. Journal of Clinical Investigation 127(2): 437-446.<a href="#fnref22">↩</a></p></li>
+</ol>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
